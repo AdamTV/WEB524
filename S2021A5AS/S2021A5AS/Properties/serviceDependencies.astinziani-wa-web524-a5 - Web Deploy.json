@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/astinziani-ds-web524/databases/astinziani-db-web524-a5",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:web525dba5",
+      "secretStore": null
+    }
+  }
+}

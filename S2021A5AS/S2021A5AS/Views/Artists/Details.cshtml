@@ -1,0 +1,87 @@
+﻿@model S2021A5AS.Models.ArtistBaseViewModel
+
+@{
+    ViewBag.Title = "Details - " + Model.Name;
+    //var albumCount = Model.Albums.Count();
+    var startDate = Model.BirthOrStartDate.ToLongDateString();
+
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+            <hr />
+        </dd>
+
+        @if (Model.BirthName != null && !Model.BirthName.IsEmpty())
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.BirthName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BirthName)
+                <hr />
+            </dd>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthOrStartDate)
+        </dt>
+
+        <dd>
+            @startDate
+            <hr />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Executive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Executive)
+            <hr />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+            <hr />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrlArtist)
+        </dt>
+
+        <dd>
+            <img height="100" width="100" src="@Html.DisplayFor(model => model.UrlArtist)" />
+            <hr />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlbumsCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlbumsCount)
+            <hr />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Add Album", $"{Model.Id}/AddAlbum")
+</p>

@@ -1,0 +1,108 @@
+﻿@model S2021A6AS.Models.AlbumBaseViewModel
+
+@{
+    ViewBag.Title = $"Details - {Model.Name}";
+    var tracksCount = Model.Tracks.Count();
+    var artistsCount = Model.Artists.Count();
+    var releaseDate = Model.ReleaseDate.ToLongDateString();
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+            <hr />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+            <hr />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @releaseDate
+            <hr />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrlAlbum)
+        </dt>
+
+        <dd>
+            <img height="100" width="100" src="@Html.DisplayFor(modelItem => modelItem.UrlAlbum)" />
+            <hr />
+        </dd>
+
+        @*<dt>
+            Number of tracks on this album
+        </dt>
+
+        <dd>
+            @tracksCount
+            <hr />
+        </dd>
+
+        <dt>
+            Number of artists on this album
+        </dt>
+
+        <dd>
+            @artistsCount
+            <hr />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtistNames)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtistNames)
+            <hr />
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Coordinator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coordinator)
+            <hr />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary)
+        </dt>
+
+        <dd>
+            <div class="well">
+                @Html.Raw(Model.Summary)
+            </div>
+            <hr />
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+    @if (new S2021A6AS.Controllers.RequestUser(User as System.Security.Claims.ClaimsPrincipal).HasRoleClaim("Clerk"))
+    {
+        @Html.Raw(" | ")
+        @Html.ActionLink("Add Track", $"{Model.Id}/AddTrack")
+    }
+
+</p>

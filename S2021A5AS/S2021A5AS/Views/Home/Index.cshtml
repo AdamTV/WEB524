@@ -1,0 +1,30 @@
+﻿@{ 
+    ViewBag.Title = "Home";
+}
+<div class="jumbotron">
+    <h1>Assignment 5 - astinziani</h1>
+    <p class="lead">Dark themed ASP.NET MVC app with Individual User Authentication for security, Data Models designed using Entity Framework to structure the persistence layer.</p>
+    <p><a href="https://astinziani-wa-web524-a5.azurewebsites.net" class="btn btn-primary btn-lg">Assignment 5 on Azure &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>About this project</h2>
+        <p>Includes security-aware features such as ASP.NET Identity, User Accounts, Authentication &amp; Authorization.</p>
+        <p>Role claims are defined by a design model class, and initialized during the "load data" task.</p>
+        <p>The "load data" task should be protected so only authorized administrators can access it.</p>
+        <p>This project includes a custom error page and implements ASP.NET error-handling.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>How to use this app</h2>
+        <p>This app is used to create, store, update, and display data related to Artists, Albums and Tracks.</p>
+        <p>Artists must be added first, and then their released albums along with album tracks may be added.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>How to access this app's functionalities</h2>
+        <p>You must be registered and logged in to view any information.</p>
+        <p>Only those with the Executive role may add new Artists.</p>
+        <p>Only those with the Coordinator role may add new Albums.</p>
+        <p>Only those with the Clerk role may add new Tracks.</p>
+    </div>
+</div>

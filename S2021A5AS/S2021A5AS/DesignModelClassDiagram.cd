@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="S2021A5AS.EntityModels.Artist">
+    <Position X="11.75" Y="1" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAADAAAAQAIAAAQIAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>EntityModels\Artist.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Albums" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="S2021A5AS.EntityModels.Genre">
+    <Position X="11.75" Y="5.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EntityModels\Genre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="S2021A5AS.EntityModels.Track">
+    <Position X="6" Y="6" Width="2.5" />
+    <AssociationLine Name="Albums" Type="S2021A5AS.EntityModels.Album">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-2.094" Y="0.046" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAIAAAQAAAAAAAAAAAAACEQAAAA=</HashCode>
+      <FileName>EntityModels\Track.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Albums" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="S2021A5AS.EntityModels.Album">
+    <Position X="6" Y="1" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAEAIAAAAAEIAAAQAAAAAAAAAQEAAAAAAAAA=</HashCode>
+      <FileName>EntityModels\Album.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Artists" />
+      <Property Name="Tracks" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

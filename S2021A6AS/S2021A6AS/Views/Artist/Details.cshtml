@@ -1,0 +1,127 @@
+﻿@model S2021A6AS.Models.ArtistWithMediaInfoViewModel
+
+@{
+    ViewBag.Title = "Details - " + Model.Name;
+    //var albumCount = Model.Albums.Count();
+    var startDate = Model.BirthOrStartDate.ToLongDateString();
+
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+            <hr />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthName)
+            <hr />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthOrStartDate)
+        </dt>
+
+        <dd>
+            @startDate
+            <hr />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrlArtist)
+        </dt>
+
+        <dd>
+            <img height="100" width="100" src="@Html.DisplayFor(model => model.UrlArtist)" />
+            <hr />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+            <hr />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Executive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Executive)
+            <hr />
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.AlbumsCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlbumsCount)
+            <hr />
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Biography)
+        </dt>
+
+        <dd>
+            <div class="well">@Html.Raw(Model.Biography)</div>
+            <hr />
+        </dd>
+
+        <dt> Photos </dt>
+        <dd>
+            @foreach (var item in Model.ArtistMediaItems.Where(m => m.ContentType.Contains("image/")))
+            {
+                <div> <span>@item.Caption</span><br /> 
+            <img src="/artistmediaitem/@item.StringId" alt="@item.Caption" title="@item.Caption" width="200" /> </div>
+                } <hr />
+        </dd>
+
+        <dt> Audio </dt>
+        <dd>
+            @foreach (var item in Model.ArtistMediaItems.Where(m => m.ContentType.Contains("audio/")))
+            {
+            <div>
+                <span>@item.Caption</span>
+                <br />
+                <audio src="/artistmediaitem/@item.StringId" alt="@item.Caption" title="@item.Caption" controls="controls"></audio>
+            </div>
+             } 
+            <hr />
+        </dd>
+
+        <dt> Documents </dt>
+        <dd>
+            @foreach (var item in Model.ArtistMediaItems.Where(m => m.ContentType.Contains("application/")))
+            {<div><br /> <a href="/artistmediaitem/@item.StringId/download" alt="@item.Caption" title="@item.Caption" width="200"> <span>@item.Caption</span></a> </div>} <hr />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+    @if (new S2021A6AS.Controllers.RequestUser(User as System.Security.Claims.ClaimsPrincipal).HasRoleClaim("Coordinator"))
+    {
+        @Html.Raw(" | ")
+        @Html.ActionLink($"Add Album for {Model.Name}", $"{Model.Id}/AddAlbum")
+        @Html.Raw(" | ")
+        @Html.ActionLink($"Add Media for {Model.Name}", $"{Model.Id}/AddMediaItem")
+    }
+</p>
